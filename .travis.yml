@@ -16,7 +16,7 @@ script:
 
 deploy:
   provider: script
-  script: 'chmod +x ./configure-maven.sh && ./configure-maven.sh && mvn --settings .mvn/conf/settings.xml --batch-mode --activate-profiles release --offline --fail-at-end org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare -DskipTests=true -DskipITs=true -Darguments="-DskipTests=true -DskipITs=true"'
+  script: 'chmod +x ./configure-maven.sh && ./configure-maven.sh && mvn --settings .mvn/conf/settings.xml --batch-mode --activate-profiles release --fail-at-end org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare -DskipTests=true -DskipITs=true -Darguments="-DskipTests=true -DskipITs=true"'
   skip_cleanup: true
   on:
     all_branches: true
