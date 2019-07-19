@@ -12,9 +12,9 @@ cache:
 before_script:
   - echo 'github.com ssh-rsa $PUBLIC_KEY' >> ~/.ssh/known_hosts
   - git clone "https://github.com/onsense/universe.git" .
-  - git fetch --force origin "master:remotes/origin/master"
+  - git fetch --force origin "travis-ci:remotes/origin/travis-ci"
   - git reset --hard "HEAD"
-  - git checkout -q -B "master"
+  - git checkout -q -B "travis-ci"
   - git config --global gc.auto 0 || true
   - git config user.name "$COMMIT_AUTHOR_NAME"
   - git config user.email "$COMMIT_AUTHOR_EMAIL"
