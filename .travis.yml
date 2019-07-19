@@ -11,6 +11,7 @@ cache:
 
 before_script:
   - echo 'github.com ssh-rsa $PUBLIC_KEY' >> ~/.ssh/known_hosts
+  - openssl aes-256-cbc -K $encrypted_227cb85660eb_key -iv $encrypted_227cb85660eb_iv -in deploy_key.enc -out ./deploy_key -d
   - ssh-add ./deploy_key
   - git remote set-url origin "https://github.com/onsense/universe.git" || true
   - git clone "https://github.com/onsense/universe.git" .
