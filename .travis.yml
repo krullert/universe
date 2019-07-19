@@ -12,12 +12,13 @@ cache:
 before_script:
   - echo 'github.com ssh-rsa $PUBLIC_KEY' >> ~/.ssh/known_hosts
   - git clone "https://github.com/onsense/universe.git" .
-  - git fetch --force origin "travis-ci:remotes/origin/travis-ci"
+  - git fetch --force origin "$TRAVIS_BRANCH:remotes/origin/$TRAVIS_BRANCH"
   - git reset --hard "HEAD"
-  - git checkout -q -B "travis-ci"
+  - git checkout -q -B "$TRAVIS_BRANCH"
   - git config --global gc.auto 0 || true
   - git config user.name "$COMMIT_AUTHOR_NAME"
   - git config user.email "$COMMIT_AUTHOR_EMAIL"
+  - ls -la
   - openssl aes-256-cbc -K $encrypted_227cb85660eb_key -iv $encrypted_227cb85660eb_iv -in deploy_key.enc -out ./deploy_key -d
   - ssh-add ./deploy_key
   - git remote set-url origin "https://github.com/onsense/universe.git" || true
