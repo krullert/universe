@@ -21,7 +21,7 @@ script:
   - git fetch --force origin "master:remotes/origin/master"
   - git reset --hard "HEAD"
     git checkout -q -B "master"
-  - mvn clean install
+  - mvn clean install -DskipTests=true
 
 deploy:
   provider: script
