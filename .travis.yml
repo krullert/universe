@@ -1,0 +1,22 @@
+language: java
+jdk: oraclejdk8
+install: true
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_script:
+  - git config user.name "$COMMIT_AUTHOR_NAME"
+  - git config user.email "$COMMIT_AUTHOR_EMAIL"
+  - export COMMIT_MESSAGE=`git log -1 --oneline`
+
+script:
+  - mvn clean install
+
+deploy:
+  provider: script
+  script: "configure-maven.sh && mvn deploy"
+  skip_cleanup: true
+  on:
+    tags: true
