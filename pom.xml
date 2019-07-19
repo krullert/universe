@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.onsense</groupId>
+    <artifactId>universe</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- maven -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+        <!-- javax -->
+        <javax.annotation-api.version>1.3.2</javax.annotation-api.version>
+        <javax.validation-api.version>2.0.0.Final</javax.validation-api.version>
+        <jsr305.version>3.0.2</jsr305.version>
+
+        <!-- validation -->
+        <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
+
+        <!-- commons -->
+        <commons-math.version>2.2</commons-math.version>
+        <commons-math3.version>3.6.1</commons-math3.version>
+        <commons-validator.version>1.6</commons-validator.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
+        <commons-text.version>1.4</commons-text.version>
+
+        <!-- lib -->
+        <big-math.version>2.0.1</big-math.version>
+        <colt.version>1.2.0</colt.version>
+        <jsoup.version>1.11.3</jsoup.version>
+
+        <!-- test -->
+        <hamcrest.version>1.3</hamcrest.version>
+        <hamcrest-date.version>2.0.4</hamcrest-date.version>
+        <junit.version>4.12</junit.version>
+        <javax.unit-api.version>1.0</javax.unit-api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- javax -->
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>${javax.annotation-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javax.validation-api.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.measure/unit-api -->
+            <dependency>
+                <groupId>javax.measure</groupId>
+                <artifactId>unit-api</artifactId>
+                <version>${javax.unit-api.version}</version>
+            </dependency>
+            <!-- JSR305 Annotations for Findbugs -->
+            <!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
+            <!-- http://findbugs.sourceforge.net/ -->
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <!-- end of javax -->
+
+            <!-- validation -->
+            <!-- Hibernate's Bean Validation (JSR-380) reference implementation. -->
+            <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.fasterxml</groupId>
+                        <artifactId>classmate</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.thoughtworks.paranamer</groupId>
+                        <artifactId>paranamer</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.money</groupId>
+                        <artifactId>money-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.validation</groupId>
+                        <artifactId>validation-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>joda-time</groupId>
+                        <artifactId>joda-time</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.hibernate.javax.persistence</groupId>
+                        <artifactId>hibernate-jpa-2.1-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.logging</groupId>
+                        <artifactId>jboss-logging</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jsoup</groupId>
+                        <artifactId>jsoup</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- end of validation -->
+
+            <!-- commons -->
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math -->
+            <!-- http://www.apache.org/licenses/LICENSE-2.0.txt -->
+            <!-- License Apache 2.0 -->
+            <!-- https://www.tldrlegal.com/l/apache2 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math</artifactId>
+                <version>${commons-math.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+            <!-- http://www.apache.org/licenses/LICENSE-2.0.txt -->
+            <!-- License Apache 2.0 -->
+            <!-- https://www.tldrlegal.com/l/apache2 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>${commons-math3.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
+            <!-- http://commons.apache.org/proper/commons-validator/ -->
+            <dependency>
+                <groupId>commons-validator</groupId>
+                <artifactId>commons-validator</artifactId>
+                <version>${commons-validator.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-beanutils</groupId>
+                        <artifactId>commons-beanutils</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-collections</groupId>
+                        <artifactId>commons-collections</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-digester</groupId>
+                        <artifactId>commons-digester</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <!-- http://www.apache.org/licenses/LICENSE-2.0.txt -->
+            <!-- License Apache 2.0 -->
+            <!-- https://www.tldrlegal.com/l/apache2 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-io</groupId>
+                        <artifactId>commons-io</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Apache Commons Text is a library focused on algorithms working on strings. -->
+            <!-- http://commons.apache.org/proper/commons-text/ -->
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+            <!-- http://www.apache.org/licenses/LICENSE-2.0.txt -->
+            <!-- License Apache 2.0 -->
+            <!-- https://www.tldrlegal.com/l/apache2 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-text</artifactId>
+                <version>${commons-text.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.commons</groupId>
+                        <artifactId>commons-lang3</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- end of commons -->
+
+            <!-- lib -->
+            <!-- https://mvnrepository.com/artifact/colt/colt -->
+            <dependency>
+                <groupId>colt</groupId>
+                <artifactId>colt</artifactId>
+                <version>${colt.version}</version>
+            </dependency>
+            <!-- Math functions for BigDecimal. -->
+            <!-- https://github.com/eobermuhlner/big-math -->
+            <!-- https://mvnrepository.com/artifact/ch.obermuhlner/big-math -->
+            <dependency>
+                <groupId>ch.obermuhlner</groupId>
+                <artifactId>big-math</artifactId>
+                <version>${big-math.version}</version>
+            </dependency>
+            <!-- https://jsoup.org/ -->
+            <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+            <!-- https://jsoup.org/license -->
+            <!-- License MIT -->
+            <!-- https://www.tldrlegal.com/l/mit -->
+            <!-- jsoup is a Java library for working with real-world HTML. -->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>${jsoup.version}</version>
+            </dependency>
+
+            <!-- end of lib -->
+
+            <!-- uom -->
+
+            <!-- https://mvnrepository.com/artifact/tec.uom.lib/uom-lib-common -->
+            <dependency>
+                <groupId>tec.uom.lib</groupId>
+                <artifactId>uom-lib-common</artifactId>
+                <version>1.0.3</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/si.uom/si-quantity -->
+            <dependency>
+                <groupId>si.uom</groupId>
+                <artifactId>si-quantity</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/si.uom/si-units -->
+            <dependency>
+                <groupId>si.uom</groupId>
+                <artifactId>si-units</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>si.uom</groupId>
+                        <artifactId>si-quantity</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>tec.units</groupId>
+                        <artifactId>indriya</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/tec.units/indriya -->
+            <dependency>
+                <groupId>tec.units</groupId>
+                <artifactId>indriya</artifactId>
+                <version>1.0</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>tec.uom.lib</groupId>
+                        <artifactId>uom-lib-common</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://github.com/unitsofmeasurement/uom-se -->
+            <!-- https://mvnrepository.com/artifact/tec.uom/uom-se -->
+            <dependency>
+                <groupId>tec.uom</groupId>
+                <artifactId>uom-se</artifactId>
+                <version>1.0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>tec.uom.lib</groupId>
+                        <artifactId>uom-lib-common</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/systems.uom/systems-ucum -->
+            <dependency>
+                <groupId>systems.uom</groupId>
+                <artifactId>systems-ucum</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>si.uom</groupId>
+                        <artifactId>si-quantity</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>si.uom</groupId>
+                        <artifactId>si-units</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>tec.units</groupId>
+                        <artifactId>indriya</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/systems.uom/systems-common -->
+            <dependency>
+                <groupId>systems.uom</groupId>
+                <artifactId>systems-common</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>si.uom</groupId>
+                        <artifactId>si-quantity</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>si.uom</groupId>
+                        <artifactId>si-units</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>tec.units</groupId>
+                        <artifactId>indriya</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/systems.uom/systems-unicode -->
+            <dependency>
+                <groupId>systems.uom</groupId>
+                <artifactId>systems-unicode</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>tec.units</groupId>
+                        <artifactId>indriya</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/systems.uom/systems-quantity -->
+            <dependency>
+                <groupId>systems.uom</groupId>
+                <artifactId>systems-quantity</artifactId>
+                <version>0.9</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.measure</groupId>
+                        <artifactId>unit-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- end of uom -->
+
+            <!-- test -->
+
+            <!-- https://mvnrepository.com/artifact/junit/junit -->
+            <!-- http://www.eclipse.org/legal/epl-v10.html -->
+            <!-- License EPL 1.0 -->
+            <!-- https://www.tldrlegal.com/l/epl -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.hamcrest</groupId>
+                        <artifactId>hamcrest-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
+            <!-- https://opensource.org/licenses/bsd-license.php -->
+            <!-- License BSD 2-clause -->
+            <!-- https://www.tldrlegal.com/l/freebsd -->
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-core</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library -->
+            <!-- https://opensource.org/licenses/bsd-license.php -->
+            <!-- License BSD 2-clause -->
+            <!-- https://www.tldrlegal.com/l/freebsd -->
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.hamcrest</groupId>
+                        <artifactId>hamcrest-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Hamcrest Date matchers for Java -->
+            <!-- https://mvnrepository.com/artifact/org.exparity/hamcrest-date -->
+            <!-- https://github.com/exparity/hamcrest-date -->
+            <dependency>
+                <groupId>org.exparity</groupId>
+                <artifactId>hamcrest-date</artifactId>
+                <version>${hamcrest-date.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- end of test -->
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- javax -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- validation -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <!-- commons -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+        </dependency>
+
+        <!-- lib -->
+        <dependency>
+            <groupId>ch.obermuhlner</groupId>
+            <artifactId>big-math</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>colt</groupId>
+            <artifactId>colt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+        </dependency>
+
+        <!-- uom -->
+        <dependency>
+            <groupId>javax.measure</groupId>
+            <artifactId>unit-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tec.uom.lib</groupId>
+            <artifactId>uom-lib-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>si.uom</groupId>
+            <artifactId>si-quantity</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>si.uom</groupId>
+            <artifactId>si-units</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tec.units</groupId>
+            <artifactId>indriya</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tec.uom</groupId>
+            <artifactId>uom-se</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>systems.uom</groupId>
+            <artifactId>systems-ucum</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>systems.uom</groupId>
+            <artifactId>systems-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>systems.uom</groupId>
+            <artifactId>systems-unicode</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>systems.uom</groupId>
+            <artifactId>systems-quantity</artifactId>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.exparity</groupId>
+            <artifactId>hamcrest-date</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
