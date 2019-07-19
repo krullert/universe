@@ -11,12 +11,7 @@ cache:
 
 before_script:
   - echo 'github.com ssh-rsa $PUBLIC_KEY' >> ~/.ssh/known_hosts
-  - (umask 077; touch ~/.ssh/id_rsa)
-    chmod 0600 ~/.ssh/id_rsa
-    (cat <<EOF > ~/.ssh/id_rsa
-    $PRIVATE_KEY
-    EOF
-    )
+  - ssh-add ./deploy_key
   - git remote set-url origin "https://github.com/onsense/universe.git" || true
   - git clone "https://github.com/onsense/universe.git" .
   - git fetch --force origin "master:remotes/origin/master"
