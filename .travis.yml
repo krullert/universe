@@ -20,7 +20,7 @@ before_script:
   - git config user.name "$COMMIT_AUTHOR_NAME"
   - git config user.email "$COMMIT_AUTHOR_EMAIL"
   - ls -la
-  - openssl aes-256-cbc -K $encrypted_227cb85660eb_key -iv $encrypted_227cb85660eb_iv -in deploy_key.enc -out ./deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_7525ba04b569_key -iv $encrypted_7525ba04b569_iv -in deploy_key.enc -out deploy_key -d
   - ssh-add ./deploy_key
   - export COMMIT_MESSAGE=`git log -1 --oneline`
 
