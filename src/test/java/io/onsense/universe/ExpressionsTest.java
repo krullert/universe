@@ -2,6 +2,7 @@ package io.onsense.universe;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.CharBuffer;
@@ -1786,6 +1787,7 @@ public class ExpressionsTest {
         assertNotSame(expressionString4, expressionString10);
     }
 
+    @Ignore
     @Test(timeout = 4000, expected = UniversalException.class)
     public void test219() throws Throwable {
         Moment mockDate0 = Moment.valueOf(25, 25, 2006, 16, 25);
