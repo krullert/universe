@@ -14,7 +14,7 @@ before_script:
   - git clone "https://github.com/onsense/universe.git" .
   - git fetch --force origin "master:remotes/origin/master"
   - git reset --hard "HEAD"
-    git checkout -q -B "master"
+  - git checkout -q -B "master"
   - git config --global gc.auto 0 || true
   - git config user.name "$COMMIT_AUTHOR_NAME"
   - git config user.email "$COMMIT_AUTHOR_EMAIL"
