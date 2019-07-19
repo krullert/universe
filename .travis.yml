@@ -33,6 +33,3 @@ deploy:
   skip_cleanup: true
   on:
     all_branches: true
-dd:
-- openssl aes-256-cbc -K $encrypted_7525ba04b569_key -iv $encrypted_7525ba04b569_iv
-  -in deploy_key.enc -out deploy_key -d
