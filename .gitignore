@@ -28,3 +28,4 @@ hs_err_pid*
 
 # Misc
 DEPLOY.md
+release.properties
