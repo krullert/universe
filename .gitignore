@@ -25,3 +25,8 @@ hs_err_pid*
 #IntelliJ files
 *.iml
 .idea
+
+# Misc
+DEPLOY.md
+release.properties
+pom.xml.releaseBackup

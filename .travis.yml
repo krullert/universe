@@ -1,0 +1,22 @@
+language: java
+jdk: oraclejdk8
+install: true
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_script:
+  - git config user.name "$COMMIT_AUTHOR_NAME"
+  - git config user.email "$COMMIT_AUTHOR_EMAIL"
+  - export COMMIT_MESSAGE=`git log -1 --oneline`
+
+script:
+  - mvn clean install
+
+deploy:
+  provider: script
+  script: 'chmod +x ./configure-maven.sh && ./configure-maven.sh && chmod -x ./configure-maven.sh && mvn --settings .mvn/conf/settings.xml --batch-mode --activate-profiles release --fail-at-end org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare -DskipTests=true -DskipITs=true -Darguments="-DskipTests=true -DskipITs=true"'
+  skip_cleanup: true
+  on:
+    all_branches: true
