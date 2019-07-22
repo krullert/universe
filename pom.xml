@@ -640,6 +640,7 @@
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <preparationGoals>clean install -DskipTests -DskipITs=true deploy</preparationGoals>
                 </configuration>
                 <dependencies>
                     <dependency>
