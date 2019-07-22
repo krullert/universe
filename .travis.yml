@@ -29,6 +29,7 @@ before_install:
   - eval "$(ssh-agent -s)"
   - chmod 400 ./deploy_key
   - ssh-add ./deploy_key
+  - git branch --set-upstream-to=origin/$TRAVIS_BRANCH $TRAVIS_BRANCH
   - git pull
 
 script:
