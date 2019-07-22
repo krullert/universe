@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/onsense/universe.svg?branch=master)](https://travis-ci.org/onsense/universe) [ ![Download](https://api.bintray.com/packages/onsense/universe/onsense-universe/images/download.svg) ](https://bintray.com/onsense/universe/onsense-universe/_latestVersion)
+
 # universe
 
 Java implementation of most Excel formula functions.
