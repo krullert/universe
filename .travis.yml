@@ -25,8 +25,7 @@ before_install:
   - ls -la
   - openssl version -a
   - export COMMIT_MESSAGE=`git log -1 --oneline`
-  - openssl aes-256-cbc -K $encrypted_7525ba04b569_key -iv $encrypted_7525ba04b569_iv
-    -in deploy_key.enc -out deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_7525ba04b569_key -iv $encrypted_7525ba04b569_iv -in deploy_key.enc -out deploy_key -d
   - ssh-add ./deploy_key
 
 script:
