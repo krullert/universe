@@ -37,7 +37,7 @@ deploy:
   script: chmod +x ./configure-maven.sh && ./configure-maven.sh && chmod -x ./configure-maven.sh
     && mvn --settings .mvn/conf/settings.xml --batch-mode --activate-profiles release
     --fail-at-end org.apache.maven.plugins:maven-release-plugin:2.5.3:prepare
-    -Dproject.scm.developerConnection="https://${GITHUB_TOKEN}@github.com/onsense/universe.git"
+    -Dproject.scm.developerConnection="scm:git:[fetch=]git@github.com:onsense/universe.git[push=]https://${GITHUB_TOKEN}@github.com/onsense/universe.git"
     -DskipTests=true -DskipITs=true -Darguments="-DskipTests=true -DskipITs=true"
   skip_cleanup: true
   on:
