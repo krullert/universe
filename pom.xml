@@ -4,7 +4,7 @@
 
     <groupId>io.onsense</groupId>
     <artifactId>universe</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -658,7 +658,7 @@
         <url>https://github.com/onsense/universe</url>
         <connection>scm:git:git@github.com:onsense/universe.git</connection>
         <developerConnection>scm:git:git@github.com:onsense/universe.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.0.5</tag>
     </scm>
 
     <distributionManagement>
