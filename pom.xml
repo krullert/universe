@@ -642,6 +642,7 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
                     <preparationGoals>clean install -DskipTests -DskipITs=true deploy --fail-never</preparationGoals>
+                    <releaseProfiles>release</releaseProfiles>
                 </configuration>
                 <dependencies>
                     <dependency>
