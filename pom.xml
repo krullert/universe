@@ -654,8 +654,8 @@
 
     <scm>
         <url>https://github.com/onsense/universe</url>
-        <connection>scm:git:git@github.com:onsense/universe.git</connection>
-        <developerConnection>scm:git:git@github.com:onsense/universe.git</developerConnection>
+        <connection>https://${GITHUB_TOKEN}@github.com/onsense/universe.git</connection>
+        <developerConnection>https://${GITHUB_TOKEN}@github.com/onsense/universe.git</developerConnection>
         <tag>HEAD</tag>
   </scm>
 
