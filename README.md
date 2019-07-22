@@ -16,50 +16,24 @@ Functions are divided over the classes
 - Statistics
 
 ## Usage with maven
+Dependency:
 ```
 <dependency>
   <groupId>io.onsense</groupId>
   <artifactId>universe</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <type>jar</type>
 </dependency>
 ```
 
-Download or copy the Maven settings:
+Repository:
 ```
-<?xml version="1.0" encoding="UTF-8" ?>
-<settings xsi:schemaLocation='http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd'
-          xmlns='http://maven.apache.org/SETTINGS/1.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
-    
-    <profiles>
-        <profile>
-            <repositories>
-                <repository>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <id>bintray-onsense-universe</id>
-                    <name>bintray</name>
-                    <url>https://dl.bintray.com/onsense/universe</url>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <id>bintray-onsense-universe</id>
-                    <name>bintray-plugins</name>
-                    <url>https://dl.bintray.com/onsense/universe</url>
-                </pluginRepository>
-            </pluginRepositories>
-            <id>bintray</id>
-        </profile>
-    </profiles>
-    <activeProfiles>
-        <activeProfile>bintray</activeProfile>
-    </activeProfiles>
-</settings>
+<repositories>
+  <repository>
+    <id>jcenter</id>
+    <url>https://jcenter.bintray.com/</url>
+  </repository>
+</repositories>
 ```
 
 # LICENSE
