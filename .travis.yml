@@ -29,9 +29,10 @@ before_install:
   - eval "$(ssh-agent -s)"
   - chmod 400 ./deploy_key
   - ssh-add ./deploy_key
+  - git pull
 
 script:
-  - mvn clean install -DskipTests=true
+  - mvn clean install
 
 deploy:
   provider: script
