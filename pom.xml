@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.onsense</groupId>
@@ -640,7 +641,7 @@
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-                    <preparationGoals>clean install -DskipTests -DskipITs=true deploy</preparationGoals>
+                    <preparationGoals>clean install -DskipTests -DskipITs=true deploy --fail-never</preparationGoals>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -658,7 +659,7 @@
         <connection>scm:git:git@github.com:onsense/universe.git</connection>
         <developerConnection>scm:git:git@github.com:onsense/universe.git</developerConnection>
         <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <distributionManagement>
         <repository>
