@@ -1651,8 +1651,8 @@ public class FinancialsTest {
 
         Moment moment1 = Financials.lcl_GetCouppcd(moment0, moment0, 40);
         assertNotNull(moment1);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
 //        // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment0.toString());
 //        // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment1.toString());
 
@@ -1661,8 +1661,8 @@ public class FinancialsTest {
         assertTrue(object0.equals((Object) moment1));
         assertNotNull(object0);
         assertNotSame(moment0, object0);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         assertNotSame(moment1, object0);
         assertNotSame(object0, moment1);
         assertNotSame(object0, moment0);
@@ -1679,8 +1679,8 @@ public class FinancialsTest {
         assertTrue(moment1.equals((Object) object0));
         assertNotNull(formulaDecimal0);
         assertNotSame(moment0, object0);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         assertNotSame(moment1, object0);
 //        // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment0.toString());
 //        // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment1.toString());
@@ -1698,8 +1698,8 @@ public class FinancialsTest {
         assertFalse(int2 == int1);
         assertFalse(int2 == int0);
         assertNotSame(moment0, object0);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         assertNotSame(moment1, object0);
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment0.toString());
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment1.toString());
@@ -2061,8 +2061,8 @@ public class FinancialsTest {
 
         Moment moment1 = Financials.lcl_GetCouppcd(moment0, moment0, 518);
         assertNotNull(moment1);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         // assertEquals("Wed Dec 31 23:59:57 GMT 1969", moment0.toString());
         // assertEquals("Wed Dec 31 23:59:57 GMT 1969", moment1.toString());
 
@@ -2096,7 +2096,7 @@ public class FinancialsTest {
         assertFalse(moment0.equals((Object) moment2));
         assertNotNull(number1);
         assertNotSame(moment0, moment2);
-        assertSame(moment0, moment1);
+        assertNotSame(moment0, moment1);
         // assertEquals("Wed Dec 31 23:59:57 GMT 1969", moment0.toString());
     }
 
@@ -2682,8 +2682,8 @@ public class FinancialsTest {
 
         Moment moment1 = Financials.lcl_GetCouppcd(moment0, moment0, (short) 1025);
         assertNotNull(moment1);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         // assertEquals("Thu Jan01 00:00:01 GMT 1970", moment0.toString());
         // assertEquals("Thu Jan01 00:00:01 GMT 1970", moment1.toString());
     }
@@ -3191,8 +3191,8 @@ public class FinancialsTest {
 
         Moment moment1 = Financials.lcl_GetCouppcd(moment0, moment0, 2954);
         assertNotNull(moment1);
-        assertSame(moment0, moment1);
-        assertSame(moment1, moment0);
+        assertNotSame(moment0, moment1);
+        assertNotSame(moment1, moment0);
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment0.toString());
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment1.toString());
 
@@ -3257,11 +3257,11 @@ public class FinancialsTest {
         Moment moment2 = Financials.lcl_GetCouppcd(moment1, moment1, 365);
         assertNotNull(moment2);
         assertSame(moment0, moment1);
-        assertSame(moment0, moment2);
+        assertNotSame(moment0, moment2);
         assertSame(moment1, moment0);
-        assertSame(moment1, moment2);
-        assertSame(moment2, moment0);
-        assertSame(moment2, moment1);
+        assertNotSame(moment1, moment2);
+        assertNotSame(moment2, moment0);
+        assertNotSame(moment2, moment1);
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment0.toString());
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment1.toString());
         // assertEquals("Thu Jan01 00:00:00 GMT 1970", moment2.toString());

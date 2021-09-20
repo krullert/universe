@@ -1141,7 +1141,7 @@ public class Financials {
     }
 
     static Moment lcl_GetCouppcd(Moment rSettle, Moment rMat, int nFreq) {
-        Moment rDate = rMat;
+        Moment rDate = Moment.valueOf(new Date(rMat.getTime()));
         rDate.setYear(rSettle.getYear());
         if (rDate.compareTo(rSettle) < 0) {
             rDate = Moment.valueOf(rDate.year().intValue() + 1, rDate.month().intValue(), rDate.dayOfMonth().intValue(), rDate.hour().intValue(), rDate.minute().intValue(), rDate.second().intValue());
@@ -2175,6 +2175,8 @@ public class Financials {
         } else if (basis.intValue() < 0 || basis.intValue() > 4) {
             throw new UniversalException("basis", 5, UniversalException.ErrorType.NUM);
         }
+
+        // @see https://github.com/apache/openoffice/blob/6bd6a4b4d1413e677a58562b60ce23f80775d22e/main/scaddins/source/analysis/financial.cxx#L248
 
         // Returns the modified Macauley duration for a security with an assumed par value of $100.
         FormulaDecimal fRet = duration(settlementDate, maturityDate, annualCouponRate, annualYield, frequency, basis);
